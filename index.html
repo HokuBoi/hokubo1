@@ -57,24 +57,24 @@
         <button class="btn btn-outline-primary" onclick="changeImage(1)">&#10095;</button>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var currentImageIndex = 0;
-            var images = [
-                "EZ_PRIME_101.png",
-                "NO_SMOKE_NO_TEARS.png",
-                "THE_BLACK_CROW.png"
-            ];
-
-            function changeImage(direction) {
-                currentImageIndex += direction;
-                if (currentImageIndex >= images.length) {
-                    currentImageIndex = 0;
-                } else if (currentImageIndex < 0) {
-                    currentImageIndex = images.length - 1;
-                }
-                document.getElementById('galleryImage').src = images[currentImageIndex];
+        var currentImageIndex = 0;
+        var images = [
+            "EZ_PRIME_101.png",
+            "NO_SMOKE_NO_TEARS.png",
+            "THE_BLACK_CROW.png"
+        ];
+    
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex >= images.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1;
             }
-            
+            document.getElementById('galleryImage').src = images[currentImageIndex];
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('galleryImage').src = images[0];
         });
     </script>
