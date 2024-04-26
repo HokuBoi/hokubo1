@@ -1,1 +1,2 @@
-Hokuboi Art. Welcome to the Dicronium.
+Hokuboi:
+[hokuboi.github.io/hokuboi/](https://hokuboi.github.io/hokuboi/)
