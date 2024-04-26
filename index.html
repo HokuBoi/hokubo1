@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hokuboi's Art Gallery</title>
-    <!-- Bootstrap CSS -->
+    <title>Hokuboi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body, html {
@@ -29,21 +28,21 @@
 <body>
     <div class="gallery-container">
         <h1>Hokuboi</h1>
+        <br>
+        <br>
         <div id="imageGallery">
             <button class="btn btn-outline-primary" onclick="changeImage(-1)">&#10094;</button>
-            <img src="your-first-image.jpg" id="galleryImage" alt="Art Image">
+            <img src="images/EZ-PRIME_101.png" id="galleryImage" alt="Art Image" loading="lazy">
             <button class="btn btn-outline-primary" onclick="changeImage(1)">&#10095;</button>
         </div>
     </div>
-
-    <!-- Bootstrap JS and Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         var currentImageIndex = 0;
         var images = [
-            "EZ-PRIME%20101.png",
-            "NO%20SMOKE%20NO%20TEARS.png",
-            "THE%20BLACK%20CROW.png"
+            "images/EZ-PRIME_101.png",
+            "images/NO_SMOKE_NO_TEARS.png",
+            "images/THE_BLACK_CROW.png"
         ];
 
         function changeImage(direction) {
@@ -55,6 +54,9 @@
             }
             document.getElementById('galleryImage').src = images[currentImageIndex];
         }
+        window.onload = function() {
+            document.getElementById('galleryImage').src = images[0];
+        };
     </script>
 </body>
 </html>
