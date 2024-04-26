@@ -47,13 +47,19 @@
         .gallery-container button:focus {
             outline: none;
         }
+        .spinner-border {
+            margin: auto; /* This centers the spinner horizontally */
+        }
     </style>
 </head>
 <body>
     <h1>Hokuboi</h1>
     <div class="gallery-container">
         <button class="btn btn-outline-primary" onclick="changeImage(-1)">&#10094;</button>
-        <img src="EZ_PRIME_101.png" id="galleryImage" alt="Art Image" loading="lazy">
+        <div class="spinner-border text-light" role="status" id="loadingSpinner">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <img src="EZ_PRIME_101.png" id="galleryImage" alt="Art Image">
         <button class="btn btn-outline-primary" onclick="changeImage(1)">&#10095;</button>
     </div>
     <script>
@@ -64,19 +70,33 @@
             "THE_BLACK_CROW.png"
         ];
     
-        function changeImage(direction) {
-            currentImageIndex += direction;
-            if (currentImageIndex >= images.length) {
-                currentImageIndex = 0;
-            } else if (currentImageIndex < 0) {
-                currentImageIndex = images.length - 1;
-            }
-            document.getElementById('galleryImage').src = images[currentImageIndex];
+    function changeImage(direction) {
+        currentImageIndex += direction;
+        if (currentImageIndex >= images.length) {
+            currentImageIndex = 0;
+        } else if (currentImageIndex < 0) {
+            currentImageIndex = images.length - 1;
         }
         
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('galleryImage').src = images[0];
-        });
+        // Show the spinner
+        document.getElementById('loadingSpinner').style.display = 'block';
+        // Hide the image while loading the new one
+        document.getElementById('galleryImage').style.display = 'none';
+    
+        // Create a new Image object
+        var img = new Image();
+        img.onload = function() {
+            // When the image is loaded, hide the spinner and update the src
+            document.getElementById('loadingSpinner').style.display = 'none';
+            document.getElementById('galleryImage').style.display = 'block';
+            document.getElementById('galleryImage').src = images[currentImageIndex];
+        };
+        img.src = images[currentImageIndex];
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        changeImage(0); // Call changeImage to load the first image and show the spinner if necessary
+    });
     </script>
 </body>
 </html>
