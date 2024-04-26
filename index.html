@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hokuboi's Art Gallery</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa;
+        }
+        .gallery-container {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <h1>Hokuboi</h1>
+        <div id="imageGallery">
+            <button class="btn btn-outline-primary" onclick="changeImage(-1)">&#10094;</button>
+            <img src="your-first-image.jpg" id="galleryImage" alt="Art Image">
+            <button class="btn btn-outline-primary" onclick="changeImage(1)">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        var currentImageIndex = 0;
+        var images = [
+            "first-image.jpg",
+            "second-image.jpg",
+            "third-image.jpg"
+        ];
+
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex >= images.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1;
+            }
+            document.getElementById('galleryImage').src = images[currentImageIndex];
+        }
+    </script>
+</body>
+</html>
