@@ -16,6 +16,14 @@
             font-family: 'Prompt', sans-serif;
             background-color: #343a40;
             color: #fff;
+            margin: 0;
+            padding-top: 40px; /* Adds space for the header */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            margin-bottom: 20px;
         }
         .gallery-container {
             display: flex;
@@ -23,12 +31,6 @@
             justify-content: center;
             max-width: 80vw; /* 80% of the viewport width */
             margin: auto;
-        }
-        .gallery-container h1 {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
         }
         .gallery-container img {
             max-width: 100%;
@@ -48,22 +50,21 @@
     </style>
 </head>
 <body>
+    <h1>Hokuboi</h1>
     <div class="gallery-container">
-        <h1>Hokuboi</h1>
         <button class="btn btn-outline-primary" onclick="changeImage(-1)">&#10094;</button>
         <img src="EZ_PRIME_101.png" id="galleryImage" alt="Art Image" loading="lazy">
         <button class="btn btn-outline-primary" onclick="changeImage(1)">&#10095;</button>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            
             var currentImageIndex = 0;
             var images = [
                 "EZ_PRIME_101.png",
                 "NO_SMOKE_NO_TEARS.png",
                 "THE_BLACK_CROW.png"
             ];
-    
+
             function changeImage(direction) {
                 currentImageIndex += direction;
                 if (currentImageIndex >= images.length) {
@@ -75,7 +76,6 @@
             }
             
             document.getElementById('galleryImage').src = images[0];
-
         });
     </script>
 </body>
