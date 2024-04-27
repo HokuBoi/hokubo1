@@ -62,14 +62,19 @@
         <img src="EZ_PRIME_101.png" id="galleryImage" alt="Art Image">
         <button class="btn btn-outline-primary" onclick="changeImage(1)">&#10095;</button>
     </div>
-    <script>
-        var currentImageIndex = 0;
-        var images = [
-            "EZ_PRIME_101.png",
-            "NO_SMOKE_NO_TEARS.png",
-            "THE_BLACK_CROW.png"
-        ];
-    
+<script>
+    var currentImageIndex = 0;
+    var images = [
+        "EZ_PRIME_101.png",
+        "NO_SMOKE_NO_TEARS.png",
+        "THE_BLACK_CROW.png"
+    ];
+
+    images.forEach(function(imageSrc) {
+        var img = new Image();
+        img.src = imageSrc;
+    });
+
     function changeImage(direction) {
         currentImageIndex += direction;
         if (currentImageIndex >= images.length) {
@@ -83,7 +88,7 @@
         // Hide the image while loading the new one
         document.getElementById('galleryImage').style.display = 'none';
     
-        // Create a new Image object
+        // Load current image
         var img = new Image();
         img.onload = function() {
             // When the image is loaded, hide the spinner and update the src
@@ -97,6 +102,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         changeImage(0); // Call changeImage to load the first image and show the spinner if necessary
     });
-    </script>
+</script>
+
 </body>
 </html>
