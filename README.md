@@ -1,2 +1,1 @@
-Hokuboi:
-[hokuboi.github.io/hokuboi/](https://hokuboi.github.io/hokuboi/)
+## [hokuboi.github.io/hokuboi/](https://hokuboi.github.io/hokuboi/)
